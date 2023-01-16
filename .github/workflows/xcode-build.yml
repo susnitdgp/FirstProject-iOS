@@ -14,20 +14,17 @@ jobs:
 
     runs-on: macos-latest
     steps:
-      - name: Execute Shell Command
+      - name: Execute-Shell-Command
         run: |
             xcode-select --print-path
             
-      - name: Cancel Previous Runs
+      - name: Cancel-Previous-Runs
         uses: styfle/cancel-workflow-action@0.9.1
         with:
           access_token: ${{ github.token }}
           
       - uses: actions/checkout@v2
           
-      - uses: sersoft-gmbh/xcodebuild-action@v2
-        with:
-          project: FirstProject-IOS.xcodeproj
-          scheme: FirstProject-IOS
-          destination: platform=iOS
-          action: build
+      - name: Xcode-Build-Command
+        run: |
+            xcodebuild -scheme iOS  build -workspace FirstProject-IOS.xcodeproj -destination 'platform=iOS,name=iPhone'
