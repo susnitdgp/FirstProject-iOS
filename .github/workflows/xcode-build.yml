@@ -27,4 +27,4 @@ jobs:
           
       - name: Xcode-Build-Command
         run: |
-            xcodebuild -scheme iOS  build -workspace FirstProject-IOS.xcodeproj/project.xcworkspace -destination 'platform=iOS,name=iPhone'
+            xcodebuild -scheme iOSApp  build -workspace FirstProject-IOS.xcodeproj/project.xcworkspace -destination 'platform=iOS,name=iPhone' -skip-testing:iOSAppUITests
